@@ -1,0 +1,21 @@
+{
+    "require":{
+        "php": ">=8.1",
+        "pecee/simple-router": "dev-master",
+        "twig/twig": "4.x-dev"
+    },
+    "autoload":{
+        "psr-4":{"Acme\\": "src/"}
+    },
+    "name": "jetbrains/phpstorm-workshop",
+    "description": "Materials for the PhpStorm workshop. Check https://github.com/jetbrains/phpstorm-workshop/ for more info.",
+    "minimum-stability": "dev",
+    "license": "Apache-2.0",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Maksim Kolmakov",
+            "email": "maxim.kolmakov@jetbrains.com"
+        }
+    ]
+}

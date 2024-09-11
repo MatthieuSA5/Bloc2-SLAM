@@ -1,0 +1,10 @@
+<h1>Compte bancaire</h1>
+<div>{{cb}}</div>
+{% if cb.operations %}
+<h2>Opérations</h2>
+<ul>
+{% for op in cb.operations %}
+<li>{{ op.intitule }}{{op.montant}}</li>
+{% endfor %}
+</ul>
+{% endif %}
