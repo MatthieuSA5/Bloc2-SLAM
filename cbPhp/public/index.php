@@ -1,13 +1,14 @@
 <?php
-
-use Acme\CompteBancaire;
 use Pecee\SimpleRouter\SimpleRouter;
 
 require "./../vendor/autoload.php";
 
-$loader = new \Twig\Loader\FilesystemLoader('./../src/templates');
-$twig = new \Twig\Environment($loader, []);
+session_start();
 
+$loader = new \Twig\Loader\FilesystemLoader('./../src/templates');
+$twig = new \Twig\Environment($loader, ["file_name_pattern"=>"*.html.twig"]);
+
+require "./../src/config/database.php";
 require "./../src/config/router.php";
 
 

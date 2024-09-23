@@ -1,21 +1,13 @@
 <?php
-
-use Acme\CompteBancaire;
 use Pecee\SimpleRouter\SimpleRouter;
+use App\models\CompteBancaire;
 
-SimpleRouter::get('/', function () {
-    return 'Hello World!';
-});
-
-SimpleRouter::get('/cb/{solde?}', function ($solde=0) {
-    global $twig;
-    $cb = new CompteBancaire("Toto", $solde);
-    return $twig->render('cbView.html.twig', ['cb' => $cb]);
-});
-
-SimpleRouter::get('/op/{solde?}/{montant?}', function ($solde=0, $montant=0) {
-    global $twig;
-    $cb = new CompteBancaire("Toto", $solde);
-    $cb->deposer("depot", $montant);
-    return $twig->render('cbView.html.twig', ['cb' => $cb]);
+simpleRouter::group(['namespace'=>'App\controllers'],function(){
+    SimpleRouter::get('/', 'CBController@index');
+    SimpleRouter::get('/newCompte', 'CBController@newCompteForm');
+    SimpleRouter::post('/newCompte','CBController@newCompte');
+    SimpleRouter::get('/fermer', 'CBController@fermer');
+    SimpleRouter::get('/users', 'CBController@users');
+    SimpleRouter::get('/retrait', 'CBController@retrait');
+    SimpleRouter::get('/depot', 'CBController@depot');
 });

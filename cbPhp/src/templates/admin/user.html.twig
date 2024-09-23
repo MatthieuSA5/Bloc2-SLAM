@@ -1,0 +1,14 @@
+{% extends "base.html.twig"%}
+{% block body %}
+    <h2>Utilisateur</h2>
+    <a href="/admin/add" class="btn btn-neutral">
+    <i 
+    <table class="table table-zebra">
+        <thead>
+
+    <ul>
+        {% for u in user %}
+            <li>{{ u.login }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
